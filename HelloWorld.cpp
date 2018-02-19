@@ -1,14 +1,14 @@
-# Java OpenCL Tutorial MacOS (2018)
-###### A Tutorial on how to utilize a GPU from java with OpenCL. 
 
-## Steps
-###### This tutorial requires the completion of my JNI Tutorial found here: ```https://github.com/kylemarino22/JNITutorial```
-1. Editing the C++ Code for OpenCL
-2. Changing the Compilation Configuration
 
-### C++ Code
-Replace the code in the ```HelloWorld.cpp``` with:
-```
+
+//============================================================================
+// Name        : 3DEngine.cpp
+// Author      : Kyle Marino
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
 #include <fcntl.h>
 #include <stdlib.h>
 #include <string.h>
@@ -23,6 +23,8 @@ Replace the code in the ```HelloWorld.cpp``` with:
 #include "HelloWorld.h"
 using namespace std;
 
+
+
 const char *KernelSource = "\n" \
                            "__kernel void square(                                                  \n" \
                            "   __global float* input,                                              \n" \
@@ -33,10 +35,10 @@ const char *KernelSource = "\n" \
                            "   int i = get_global_id(0);                                           \n" \
                            "   if(i < count)                                                       \n" \
                            "    temp = atan(cos(sin(input[i])));                                   \n" \
-                           "	for(int i = 0; i < 1000; i++){                                     \n" \
-                           "		temp = atan(cos(sin(temp)));                                   \n" \
-                           "	}                                                                  \n" \
-                           "	output[i] = atan(cos(sin(temp)));                                  \n" \
+                           "	for(int i = 0; i < 1000; i++){                                       \n" \
+                           "		temp = atan(cos(sin(temp)));                                       \n" \
+                           "	}                                                                    \n" \
+                           "	output[i] = atan(cos(sin(temp)));                                    \n" \
                            "                                                                       \n" \
                            "}                                                                      \n" \
                            "\n";
@@ -241,22 +243,3 @@ Java_HelloWorld_print(JNIEnv *, jobject){
 
         printf("Success\n");
 }
-```
-
-### Changing the Compilation Configuration
-To run the new program, we must change line 6 in the ```build.sh``` file to be:
-```
-gcc -I"$JAVA_HOME/include" -I"$JAVA_HOME/include/darwin/"  -o HelloWorld.o -shared HelloWorld.cpp -framework OpenCL
-```
-To compile and run the programs, run the command:
-```
-./build.sh
-```
-The output should be similar to:
-```
-GPU Duration 0.000686
-CPU Duration 0.396429
-Computed '10000/10000' correct values!
-Success
-```
-
