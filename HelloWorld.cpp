@@ -82,7 +82,6 @@ Java_HelloWorld_print(JNIEnv *, jobject){
         if (err != CL_SUCCESS)
         {
                 printf("Error: Failed to create a device group!\n");
-                // return EXIT_FAILURE;
         }
 
 
@@ -91,7 +90,6 @@ Java_HelloWorld_print(JNIEnv *, jobject){
         if (!context)
         {
                 printf("Error: Failed to create a compute context!\n");
-                // return EXIT_FAILURE;
         }
 
 
@@ -100,7 +98,6 @@ Java_HelloWorld_print(JNIEnv *, jobject){
         if (!commands)
         {
                 printf("Error: Failed to create a command commands!\n");
-                // return EXIT_FAILURE;
         }
 
         // Create the compute program from the source buffer
@@ -108,7 +105,6 @@ Java_HelloWorld_print(JNIEnv *, jobject){
         if (!program)
         {
                 printf("Error: Failed to create compute program!\n");
-                // return EXIT_FAILURE;
         }
 
         // Build the program executable
@@ -183,7 +179,6 @@ Java_HelloWorld_print(JNIEnv *, jobject){
         if (err)
         {
                 printf("Error: Failed to execute kernel!\n %d", err);
-                // return EXIT_FAILURE;
         }
 
         // Wait for the command commands to get serviced before reading back results
@@ -192,7 +187,6 @@ Java_HelloWorld_print(JNIEnv *, jobject){
         if (err != CL_SUCCESS)
         {
                 printf("Error: Failed to execute kernel!\n %d", err);
-                // return EXIT_FAILURE;
         }
 
 
