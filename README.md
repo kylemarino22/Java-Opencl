@@ -34,7 +34,7 @@ const char *KernelSource = "\n" \
                            "   if(i < count)                                                       \n" \
                            "    temp = atan(cos(sin(input[i])));                                   \n" \
                            "	for(int i = 0; i < 1000; i++){                                     \n" \
-                           "		temp = atan(cos(sin(temp)));                                   \n" \
+                           "		temp = atan(cos(sin(temp)));                               \n" \
                            "	}                                                                  \n" \
                            "	output[i] = atan(cos(sin(temp)));                                  \n" \
                            "                                                                       \n" \
